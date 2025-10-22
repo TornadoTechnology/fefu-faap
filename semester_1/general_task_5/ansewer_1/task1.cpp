@@ -1,32 +1,28 @@
 ﻿#include <iomanip>
 #include <iostream>
 #include <limits>
+#include <cmath>
 
 int main() {
-    int pgrRes, eps;
-    long double x;
+    int pgrRes;
+    long double x, eps;
 
     std::cin >> x >> eps;
 
-    long double a = 0;
+    long double a = 1;
+    long double s = 0;
+
     if (eps > 0) {
-        for (int n = 0; n < eps; n++) {
-            long double fact = 1;
-            for (int j = 2; j <= n; j++) {
-                fact *= j;
-            }
-
-            long double pwr = 1;
-            for (int j = 1; j <= n; j++) {
-                pwr *= x;
-            }
-
-            a += pwr / fact;
-        }
+        int n = 1;
+        do {
+            s += a;
+            a *= -(x * x) / n * (n + 1);
+            n++;
+        } while (a > eps);
 
         std::cout
             << std::fixed << std::setprecision(std::numeric_limits<long double>::max_digits10)
-            << "e^x = " << a << std::endl;
+            << "e^x = " << s << std::endl;
         pgrRes = 0;
     } else {
         std::cerr << "eps must be grater than zero" << std::endl;
