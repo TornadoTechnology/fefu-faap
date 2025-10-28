@@ -15,8 +15,8 @@ int main() {
     if (eps > 0) {
         int n = 1;
         do {
-            a *= x / n;
             s += a;
+            a *= x / n;
             n++;
         } while (a > eps);
 
