@@ -16,7 +16,7 @@ int main() {
         int n = 1;
         do {
             s += a;
-            a *= -(x * x) / n * (n + 1);
+            a *= x / n;
             n++;
         } while (a > eps);
 
