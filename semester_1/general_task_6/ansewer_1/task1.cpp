@@ -4,13 +4,15 @@
 #include <cmath>
 
 int main() {
+    const long double x0 = 0.001L;
+
     int pgrRes;
     long double N, D, eps;
     std::cin >> N >> D >> eps;
 
-    if (eps > 0) {
+    if (eps > 0 && eps < 1) {
         if (D != 0) {
-            long double x = 0.001L;
+            long double x = x0;
 
             do {
                 x *= 2.0L - D * x;
@@ -26,7 +28,7 @@ int main() {
             pgrRes = 1;
         }
     } else {
-        std::cerr << "eps must be grater than zero" << std::endl;
+        std::cerr << "eps must be in (0; 1)" << std::endl;
         pgrRes = 1;
     }
 
