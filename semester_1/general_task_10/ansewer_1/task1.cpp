@@ -19,8 +19,10 @@ int main() {
     };
 
     bool isOrthonormal = true;
-    for (int i = 0; i < Size; i++) {
-        for (int j = i; j < Size; j++) {
+    bool breakFlag = false;
+
+    for (int i = 0; i < Size && !breakFlag; i++) {
+        for (int j = i; j < Size && !breakFlag; j++) {
             const double tolerance = 1e-10;
             double product = 0.0;
 
@@ -34,6 +36,7 @@ int main() {
                         << "Row " << i + 1
                         << " not normalized: scalar square = " << product
                         << std::endl;
+                    breakFlag = true;
                 }
             } else {
                 if (fabs(product) > tolerance) {
@@ -42,6 +45,7 @@ int main() {
                         << "Rows "<< i << " & " << j
                         << " are not orthogonal: scalar product = " << product
                         << std::endl;
+                    breakFlag = true;
                 }
             }
         }

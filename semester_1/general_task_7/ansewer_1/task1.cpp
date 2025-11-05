@@ -17,7 +17,7 @@ int main() {
     // Fill random
     for (int i = 0; i < W; i++) {
         for (int j = 0; j < H; j++) {
-            matrix[i][j] = 1; // rand() % 100;
+            matrix[i][j] = rand() % 100;
         }
     }
 
