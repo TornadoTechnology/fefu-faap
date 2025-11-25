@@ -3,7 +3,8 @@
 int main() {
     int pgrRes;
     int a1, b1, c1, a2, b2, c2;
-    std::cout << ""
+
+    std::cout << "Enter: a1, b1, c1, a2, b2, c2" << std::endl;
     std::cin >> a1 >> b1 >> c1 >> a2 >> b2 >> c2;
 
     if (a1 * b1 * c1 * a2 * b2 * c2 != 0) {
